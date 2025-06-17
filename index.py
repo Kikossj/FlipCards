@@ -7,7 +7,7 @@ class Deck():
         pass
 
     def load_deck_data(self):
-        with open(r'C:\Users\denja\OneDrive\Desktop\ConquerBlocks\Python\FlipCards\deck.json', 'r+', encoding="utf-8") as file:
+        with open('data\deck.json', 'r+', encoding="utf-8") as file:
             deck_data = json.load(file)
         print(deck_data)
         return deck_data
@@ -27,14 +27,14 @@ class Deck():
                     else:    
                         decks_data[deck_name] = {}
     
-                        with open (r'C:\Users\denja\OneDrive\Desktop\ConquerBlocks\Python\FlipCards\deck.json', 'w+') as file:
+                        with open ('data\deck.json', 'w+') as file:
                             json.dump(decks_data, file, indent=4, ensure_ascii=False)
 
                 except json.decoder.JSONDecodeError:
                     deck_name = input("Elige un nombre para el mazo: ")
                     decks_data[deck_name] = {}
     
-                    with open (r'C:\Users\denja\OneDrive\Desktop\ConquerBlocks\Python\FlipCards\deck.json', 'w+') as file:
+                    with open ('data\deck.json', 'w+') as file:
                         json.dump(decks_data, file, indent=4, ensure_ascii=False)
             else:
                 break
@@ -55,7 +55,7 @@ class Card():
 
         tarjetas[title] = desc
 
-        with open(r'C:\Users\denja\OneDrive\Desktop\ConquerBlocks\Python\FlipCards\cards.json', 'a') as file:
+        with open('data\cards.json', 'a') as file:
             tarjetas = json.dump(tarjetas, file, indent=4, ensure_ascii=False)
         print(f'tarjeta con nombre: {title} con descripcion: {desc}.')
 
