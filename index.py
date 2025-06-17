@@ -16,8 +16,8 @@ class Deck():
     def add_deck(self):
         
         while True:
-            opt = input('¿Quieres crear un deck? S/N')
-            if opt.lower() == 's':
+            opt = input('¿Quieres crear un deck? S/N').lower()
+            if opt == 's':
                 try:
                     decks_data = Deck.load_deck_data(self)  
                     deck_name = input("Elige un nombre para el mazo: ")
@@ -39,6 +39,23 @@ class Deck():
             else:
                 break
 
+    def remove_deck(self):
+
+        while True:
+            opt = input('¿Quieres borrar un deck? S/N').lower()
+            if opt == 's':
+                try:
+                    decks_data = Deck.load_deck_data()
+                    deck_name = input('¿Cual deseas eliminar?')
+
+                    if deck_name in decks_data:
+                        del decks_data[deck_name]
+                        print()
+                    else:
+                        print('El deck no existe')
+                except json.decoder.JSONDecodeError:
+                    pass
+    
 #---Tarjetas---
 class Card():
     def __init__(self):
