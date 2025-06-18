@@ -3,21 +3,27 @@ from colorama import Fore
 
 class Menu():
     def run(self):
+        cards = card.Card('','')
+        decks = deck.Deck()
+
         while True:
             print('¿Que quieres hacer?')
             print(
                 '1. Crear tarjeta' '\n2. Ver tarjetas'
                 '\n3. Crear mazo' '\n4. Ver mazos'
+                '\n5. Salir'
             )
-            opt = input('Opción: ')
+            opt = int(input('Opción: '))
             if opt == 1:
-                card.Card.add_card()
+                cards.add_card()
             elif opt == 2:
-                card.Card.load_card()
+                cards.load_card()
             elif opt == 3:
-                deck.Deck.add_deck()
+                decks.add_deck()
             elif opt == 4:
-                deck.Deck.load_deck_data()
+                decks.load_deck_data()
+            elif opt == 5:
+                break
 
 
 
