@@ -17,3 +17,4 @@ class JsonController():
 
         with open(self.dir , 'w', encoding="utf-8") as file:
             json.dump(data, file, indent=4, ensure_ascii=False)
+
