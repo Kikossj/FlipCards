@@ -31,7 +31,6 @@ class Menu():
                     title = input('Ingrese titulo: ')
                     cards = Card(title,)
                     cards.remove_card()
-                    cards.add_card()
                 
                 elif opt == 4:
                     continue
