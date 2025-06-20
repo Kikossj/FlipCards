@@ -14,7 +14,8 @@ class Menu():
             if opt == 1:
                 print('---Tarjetas---'
                         '\n1. Lista de tarjetas' '\n2. Crear tarjeta'
-                        '\n3, Eliminar tarjeta' '\n4. Atras')
+                        '\n3, Eliminar tarjeta' '\n4. Añadir tarjeta a mazo'
+                        '\n5. Quitar tarjeta de un mazo' '\n6. Atras')
                 opt = int(input('Opción: '))
 
                 if opt == 1:
@@ -31,8 +32,20 @@ class Menu():
                     title = input('Ingrese titulo: ')
                     cards = Card(title,)
                     cards.remove_card()
-                
+
                 elif opt == 4:
+                    card_title = input('Ingrese el nombre de la tarjeta: ')
+                    deck_title = input('Ingrese el nombre de el mazo: ')
+                    deck = Deck(deck_title)
+                    deck.cardto_deck(card_title)
+
+                elif opt == 5:
+                    card_title = input('Ingrese el nombre de la tarjeta: ')
+                    deck_title = input('Ingrese el nombre de el mazo: ')
+                    deck = Deck(deck_title)
+                    deck.del_cardof_deck(card_title)
+
+                elif opt == 6:
                     continue
                 else:
                     print('Escoja una opcion valida.')
