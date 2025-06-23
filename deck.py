@@ -1,6 +1,7 @@
 import json
 from jsoncontroller import JsonController as JC
 from card import Card
+import random
 
 class Deck():
     def __init__(self, title=None):
@@ -62,16 +63,34 @@ class Deck():
     
     def del_cardof_deck(self, card_title):
         self.card_title = card_title
-        card = Card(card_title)
-        cards = JC('data/cards.json').open_file()
         data = self.JsonController.open_file()
-
-        if card_title in cards and self.title in data:
+        if card_title in self.title:
             del data[self.title][card_title]
             self.JsonController.save_file(data)
 
-        elif card not in cards:
-            print('La tarjeta no existe')
+    def get_randomcard(self):
+        data = self.JsonController.open_file()
+        
+        if self.title in data:
+             sel_deck = data[self.title]
+             key = random.choice(list(sel_deck.keys()))
+             value = sel_deck[key]             
+             return key, value
+        else:
+             print('Seleccione un mazo valido')
 
-        elif self.title not in data:
-            print('El mazo no existe')
+    def quiz_user(self, rounds=None):
+        title = input('Ingrese titulo: ').title()
+        decks = Deck(title)
+        self.rounds = rounds
+        points = 0
+        for _ in range(rounds):
+            key, value = decks.get_randomcard()
+            print(key)
+            answ = input('Respuesta: ')
+            if answ.title() == value.title():
+                points += 1
+                print(f'¡Correcto, tienes {points} puntos!')
+            else:
+                print('No es correcto')
+        print(f'Puntuacion final de {points} puntos.')

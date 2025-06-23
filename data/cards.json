@@ -1,3 +1,8 @@
 {
-    "Door": "Puerta"
+    "Apple": "Manzana",
+    "Watermelon": "Sandia",
+    "Door": "Puerta",
+    "Integuer": "Entero",
+    "String": "Cadena De Texto",
+    "Boolean": "Valor Binario, True Y False"
 }

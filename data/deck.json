@@ -1,3 +1,12 @@
 {
-    "Ingles": {}
+    "Ingles": {
+        "Watermelon": "Sandia",
+        "Apple": "Manzana",
+        "Door": "Puerta"
+    },
+    "Programacion": {
+        "Integuer": "Entero",
+        "String": "Cadena De Texto",
+        "Boolean": "Valor Binario, True Y False"
+    }
 }
